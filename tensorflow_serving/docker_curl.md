@@ -42,5 +42,5 @@ PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\
 [warn] getaddrinfo: address family for nodename not supported
 2019-11-10 07:11:17.252948: I tensorflow_serving/model_servers/server.cc:373] Exporting HTTP/REST API at:localhost:8501 ...
 
-![Curl](./assets/curl.png "Curl call")
+![Curl](../assets/curl.png "Curl call")
 
