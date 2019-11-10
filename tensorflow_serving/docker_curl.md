@@ -61,6 +61,7 @@ c0a477f441fb        tensorflow/serving                                       "/u
 
 
 PS E:\git_portable> curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:8501/v1/models/half_plus_two:predict
+
 Invoke-WebRequest : A parameter cannot be found that matches parameter name 'X'.
 At line:1 char:42
 + curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:850 ...
