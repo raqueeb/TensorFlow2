@@ -16,6 +16,7 @@ docker.io/tensorflow/serving:latest
 
 
 $ git clone https://github.com/tensorflow/serving
+
 Cloning into 'serving'...
 remote: Enumerating objects: 54, done.
 remote: Counting objects: 100% (54/54), done.
