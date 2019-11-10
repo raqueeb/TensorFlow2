@@ -1,7 +1,15 @@
 PS C:\Users\Test> docker pull tensorflow/serving
 Using default tag: latest
 latest: Pulling from tensorflow/serving
-22e816666fd6: Pull complete                                                                                                                                             079b6d2a1e53: Pull complete                                                                                                                                             11048ebae908: Pull complete                                                                                                                                             c58094023a2e: Pull complete                                                                                                                                             4dee0153a839: Pull complete                                                                                                                                             90850b98765d: Pull complete                                                                                                                                             de0a35913cb5: Pull complete                                                                                                                                             91e09abfcd7f: Pull complete                                                                                                                                             Digest: sha256:091c1d0440815e250114a6d0232ad3cb1d320c64b1ebb75ed8a80184fc25482d
+22e816666fd6: Pull complete
+079b6d2a1e53: Pull complete 
+11048ebae908: Pull complete                                                                                                             
+c58094023a2e: Pull complete                                                                                                             
+4dee0153a839: Pull complete                                                                                                             
+90850b98765d: Pull complete                                                                                                             
+de0a35913cb5: Pull complete                                                                                                             
+91e09abfcd7f: Pull complete                                                                                                             
+Digest: sha256:091c1d0440815e250114a6d0232ad3cb1d320c64b1ebb75ed8a80184fc25482d
 Status: Downloaded newer image for tensorflow/serving:latest
 docker.io/tensorflow/serving:latest
 
@@ -33,4 +41,6 @@ PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\
 2019-11-10 07:11:17.250931: I tensorflow_serving/model_servers/server.cc:353] Running gRPC ModelServer at 0.0.0.0:8500 ...
 [warn] getaddrinfo: address family for nodename not supported
 2019-11-10 07:11:17.252948: I tensorflow_serving/model_servers/server.cc:373] Exporting HTTP/REST API at:localhost:8501 ...
+
+![Curl](./assets/curl.png "Curl call")
 
