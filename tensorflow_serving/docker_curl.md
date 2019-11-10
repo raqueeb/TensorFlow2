@@ -1,4 +1,5 @@
 PS C:\Users\Test> docker pull tensorflow/serving
+
 Using default tag: latest
 latest: Pulling from tensorflow/serving
 22e816666fd6: Pull complete
@@ -29,6 +30,7 @@ Resolving deltas: 100% (14964/14964), done.
 
 
 PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\tensorflow_serving\servables\tensorflow\testdata\saved_model_half_plus_two_cpu:/models/half_plus_two" -e MODEL_NAME=half_plus_two tensorflow/serving
+
 2019-11-10 07:11:17.037045: I tensorflow_serving/model_servers/server.cc:85] Building single TensorFlow model file config:  model_name: half_plus_two model_base_path: /models/half_plus_two
 2019-11-10 07:11:17.037797: I tensorflow_serving/model_servers/server_core.cc:462] Adding/updating models.
 2019-11-10 07:11:17.037861: I tensorflow_serving/model_servers/server_core.cc:573]  (Re-)adding model: half_plus_two
@@ -47,9 +49,12 @@ PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\
 [warn] getaddrinfo: address family for nodename not supported
 2019-11-10 07:11:17.252948: I tensorflow_serving/model_servers/server.cc:373] Exporting HTTP/REST API at:localhost:8501 ...
 
+
 ![Curl](../assets/curl.png "Curl call")
 
+
 PS E:\git_portable> docker ps
+
 CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                              NAMES
 c6e0b94c10b9        tensorflow/tensorflow:2.0.0-py3-jupyter-pandas-sklearn   "bash -c 'source /et…"   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp             tensorflow2
 c0a477f441fb        tensorflow/serving                                       "/usr/bin/tf_serving…"   2 hours ago         Up 2 hours          8500/tcp, 0.0.0.0:8501->8501/tcp   hungry_robinson
@@ -59,7 +64,6 @@ PS E:\git_portable> curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://loca
 Invoke-WebRequest : A parameter cannot be found that matches parameter name 'X'.
 At line:1 char:42
 + curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:850 ...
-+                                          ~~
     + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
     + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
 
