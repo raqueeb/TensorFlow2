@@ -13,6 +13,8 @@ Digest: sha256:091c1d0440815e250114a6d0232ad3cb1d320c64b1ebb75ed8a80184fc25482d
 Status: Downloaded newer image for tensorflow/serving:latest
 docker.io/tensorflow/serving:latest
 
+
+
 $ git clone https://github.com/tensorflow/serving
 Cloning into 'serving'...
 remote: Enumerating objects: 54, done.
@@ -22,6 +24,8 @@ Receiving objects:  48% (9475/19738), 3.61 MiB | 195.00 KiB/s
 remote: Total 19738 (delta 36), reused 20 (delta 2), pack-reused 19684
 Receiving objects: 100% (19738/19738), 5.22 MiB | 178.00 KiB/s, done.
 Resolving deltas: 100% (14964/14964), done.
+
+
 
 PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\tensorflow_serving\servables\tensorflow\testdata\saved_model_half_plus_two_cpu:/models/half_plus_two" -e MODEL_NAME=half_plus_two tensorflow/serving
 2019-11-10 07:11:17.037045: I tensorflow_serving/model_servers/server.cc:85] Building single TensorFlow model file config:  model_name: half_plus_two model_base_path: /models/half_plus_two
@@ -43,4 +47,18 @@ PS E:\git_portable> docker run -t --rm -p 8501:8501 -v "E:\git_portable\serving\
 2019-11-10 07:11:17.252948: I tensorflow_serving/model_servers/server.cc:373] Exporting HTTP/REST API at:localhost:8501 ...
 
 ![Curl](../assets/curl.png "Curl call")
+
+PS E:\git_portable> docker ps
+CONTAINER ID        IMAGE                                                    COMMAND                  CREATED             STATUS              PORTS                              NAMES
+c6e0b94c10b9        tensorflow/tensorflow:2.0.0-py3-jupyter-pandas-sklearn   "bash -c 'source /et…"   2 hours ago         Up 2 hours          0.0.0.0:8888->8888/tcp             tensorflow2
+c0a477f441fb        tensorflow/serving                                       "/usr/bin/tf_serving…"   2 hours ago         Up 2 hours          8500/tcp, 0.0.0.0:8501->8501/tcp   hungry_robinson
+
+
+PS E:\git_portable> curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:8501/v1/models/half_plus_two:predict
+Invoke-WebRequest : A parameter cannot be found that matches parameter name 'X'.
+At line:1 char:42
++ curl -d '{"instances": [1.0, 2.0, 5.0]}' -X POST http://localhost:850 ...
++                                          ~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
 
